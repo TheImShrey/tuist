@@ -16,7 +16,7 @@ final class CleanServiceTests: TuistUnitTestCase {
     private var manifestFilesLocator: MockManifestFilesLocator!
 
     override func setUpWithError() throws {
-        super.setUp()
+        try super.setUpWithError()
         rootDirectoryLocator = MockRootDirectoryLocator()
         cacheDirectoriesProvider = try MockCacheDirectoriesProvider()
         manifestFilesLocator = MockManifestFilesLocator()

@@ -131,7 +131,7 @@ public class RecursiveManifestLoader: RecursiveManifestLoading {
         while !paths.isEmpty {
             paths.subtract(cache.keys)
             let projects = try Array(paths).map(context: ExecutionContext.concurrent) {
-                try manifestLoader.loadProject(at: $0)
+                try manifestLoader.loadProject(at: $0, context: TuistContext.shared)
             }
             var newDependenciesPaths = Set<AbsolutePath>()
             for (path, project) in zip(paths, projects) {
